@@ -1,0 +1,581 @@
+{
+    "nodes": [
+        {
+            "name": "Net Revenue",
+            "id": "net_revenue",
+            "metric": "net_revenue",
+            "dimensions": [
+                "product_category",
+                "product_title",
+                "billing_address_state"
+            ],
+            "filters": null,
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "All Sales Channels"
+        },
+        {
+            "name": "Website Net Revenue",
+            "id": "website_net_revenue",
+            "metric": "net_revenue",
+            "dimensions": [
+                "product_category",
+                "product_title",
+                "billing_address_state"
+            ],
+            "filters": {
+                "id": "cec95792-5d8f-48cd-9f19-c972646e2e19",
+                "rules": [
+                    {
+                        "id": "5a2adbcc-413d-4c3a-8da2-64751a9b28de",
+                        "field": "source",
+                        "value": "shopify",
+                        "operator": "=",
+                        "valueSource": "value"
+                    }
+                ]
+            },
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "Shopify/BigCommerce Website"
+        },
+        {
+            "name": "Website Orders",
+            "id": "website_orders",
+            "metric": "total_orders",
+            "dimensions": [
+                "product_category",
+                "product_title",
+                "billing_address_state"
+            ],
+            "filters": {
+                "id": "cec95792-5d8f-48cd-9f19-c972646e2e19",
+                "rules": [
+                    {
+                        "id": "5a2adbcc-413d-4c3a-8da2-64751a9b28de",
+                        "field": "source",
+                        "value": "shopify",
+                        "operator": "=",
+                        "valueSource": "value"
+                    }
+                ]
+            },
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "Shopify/BigCommerce Website"
+        },
+        {
+            "name": "Website Average Order Value",
+            "id": "website_average_order_value",
+            "metric": "average_order_value_net",
+            "dimensions": [],
+            "filters": {
+                "id": "cec95792-5d8f-48cd-9f19-c972646e2e19",
+                "rules": [
+                    {
+                        "id": "5a2adbcc-413d-4c3a-8da2-64751a9b28de",
+                        "field": "source",
+                        "value": "shopify",
+                        "operator": "=",
+                        "valueSource": "value"
+                    }
+                ]
+            },
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "Shopify/BigCommerce Website"
+        },
+        {
+            "name": "Website Checkouts",
+            "id": "website_checkouts",
+            "metric": "total_checkouts",
+            "dimensions": [
+                "region",
+                "sessionsourcemedium"
+            ],
+            "filters": null,
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "Google Analytics"
+        },
+        {
+            "name": "Website Payment Success Rate",
+            "id": "website_payment_success_rate",
+            "metric": "total_checkout_completion_rate",
+            "dimensions": [
+                "region",
+                "sessionsourcemedium"
+            ],
+            "filters": null,
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "Google Analytics"
+        },
+        {
+            "name": "Website Add To Cart",
+            "id": "website_add_to_cart",
+            "metric": "total_add_to_cart",
+            "dimensions": [
+                "region",
+                "sessionsourcemedium",
+                "landing_page"
+            ],
+            "filters": null,
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "Google Analytics"
+        },
+        {
+            "name": "Website Cart Abandonment Rate",
+            "id": "website_cart_abandonment_rate",
+            "metric": "cart_abandonment_rate",
+            "dimensions": [
+                "region",
+                "sessionsourcemedium",
+                "landing_page"
+            ],
+            "filters": null,
+            "function": "Revenue and Growth",
+            "type": "minimization_metric",
+            "data_source": "Google Analytics"
+        },
+        {
+            "name": "Website Product Views",
+            "id": "website_product_views",
+            "metric": "total_item_views",
+            "dimensions": [
+                "region",
+                "sessionsourcemedium",
+                "landing_page"
+            ],
+            "filters": null,
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "Google Analytics"
+        },
+        {
+            "name": "Website Add To Cart Rate",
+            "id": "website_add_to_cart_rate",
+            "metric": "total_add_to_cart_rate",
+            "dimensions": [
+                "region",
+                "sessionsourcemedium",
+                "landing_page"
+            ],
+            "filters": null,
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "Google Analytics"
+        },
+        {
+            "name": "Website Sessions",
+            "id": "website_sessions",
+            "metric": "total_sessions",
+            "dimensions": [
+                "region",
+                "sessionsourcemedium",
+                "landing_page"
+            ],
+            "filters": null,
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "Google Analytics"
+        },
+        {
+            "name": "Website Bounce Rate",
+            "id": "website_bounce_rate",
+            "metric": "average_bounce_rate",
+            "dimensions": [
+                "region",
+                "sessionsourcemedium",
+                "landing_page",
+                "platformdevicecategory"
+            ],
+            "filters": null,
+            "function": "Revenue and Growth",
+            "type": "minimization_metric",
+            "data_source": "Google Analytics"
+        },
+        {
+            "name": "Ad Clicks",
+            "id": "ad_clicks",
+            "metric": "total_clicks",
+            "dimensions": [
+                "vendor",
+                "campaign_name"
+            ],
+            "filters": {
+                "id": "cec95792-5d8f-48cd-9f19-c972646e2e19",
+                "rules": [
+                    {
+                        "id": "5a2adbcc-413d-4c3a-8da2-64751a9b28de",
+                        "field": "vendor",
+                        "value": [
+                            "facebook",
+                            "google"
+                        ],
+                        "operator": "=",
+                        "valueSource": "value"
+                    }
+                ]
+            },
+            "function": "Marketing",
+            "type": "maximization_metric",
+            "data_source": "Meta Ads, Google Ads, Tiktok Ads etc"
+        },
+        {
+            "name": "Ad Click Through Rate",
+            "id": "ad_click_through_rate",
+            "metric": "total_click_through_rate",
+            "dimensions": [
+                "vendor",
+                "campaign_name"
+            ],
+            "filters": {
+                "id": "cec95792-5d8f-48cd-9f19-c972646e2e19",
+                "rules": [
+                    {
+                        "id": "5a2adbcc-413d-4c3a-8da2-64751a9b28de",
+                        "field": "vendor",
+                        "value": [
+                            "facebook",
+                            "google"
+                        ],
+                        "operator": "=",
+                        "valueSource": "value"
+                    }
+                ]
+            },
+            "function": "Marketing",
+            "type": "maximization_metric",
+            "data_source": "Meta Ads, Google Ads, Tiktok Ads etc"
+        },
+        {
+            "name": "Ad Impressions",
+            "id": "ad_impressions",
+            "metric": "total_impressions",
+            "dimensions": [
+                "vendor",
+                "campaign_name"
+            ],
+            "filters": {
+                "id": "cec95792-5d8f-48cd-9f19-c972646e2e19",
+                "rules": [
+                    {
+                        "id": "5a2adbcc-413d-4c3a-8da2-64751a9b28de",
+                        "field": "vendor",
+                        "value": [
+                            "facebook",
+                            "google"
+                        ],
+                        "operator": "=",
+                        "valueSource": "value"
+                    }
+                ]
+            },
+            "function": "Marketing",
+            "type": "maximization_metric",
+            "data_source": "Meta Ads, Google Ads, Tiktok Ads etc"
+        },
+        {
+            "name": "Ad Cost per Million Impressions",
+            "id": "ad_cpm",
+            "metric": "total_cpm",
+            "dimensions": [
+                "vendor",
+                "campaign_name"
+            ],
+            "filters": {
+                "id": "cec95792-5d8f-48cd-9f19-c972646e2e19",
+                "rules": [
+                    {
+                        "id": "5a2adbcc-413d-4c3a-8da2-64751a9b28de",
+                        "field": "vendor",
+                        "value": [
+                            "facebook",
+                            "google"
+                        ],
+                        "operator": "=",
+                        "valueSource": "value"
+                    }
+                ]
+            },
+            "function": "Marketing",
+            "type": "minimization_metric",
+            "data_source": "Meta Ads, Google Ads, Tiktok Ads etc"
+        },
+        {
+            "name": "Ad Spend",
+            "id": "ad_spend",
+            "metric": "total_marketing_spend",
+            "dimensions": [
+                "vendor",
+                "campaign_name"
+            ],
+            "filters": {
+                "id": "cec95792-5d8f-48cd-9f19-c972646e2e19",
+                "rules": [
+                    {
+                        "id": "5a2adbcc-413d-4c3a-8da2-64751a9b28de",
+                        "field": "vendor",
+                        "value": [
+                            "facebook",
+                            "google"
+                        ],
+                        "operator": "=",
+                        "valueSource": "value"
+                    }
+                ]
+            },
+            "function": "Marketing",
+            "type": "minimization_metric",
+            "data_source": "Meta Ads, Google Ads, Tiktok Ads etc"
+        },
+        {
+            "name": "Number of Customers",
+            "id": "number_of_customers",
+            "metric": "total_new_customers",
+            "dimensions": [],
+            "filters": {
+                "id": "cec95792-5d8f-48cd-9f19-c972646e2e19",
+                "rules": [
+                    {
+                        "id": "5a2adbcc-413d-4c3a-8da2-64751a9b28de",
+                        "field": "source",
+                        "value": "shopify",
+                        "operator": "=",
+                        "valueSource": "value"
+                    }
+                ]
+            },
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "Shopify/BigCommerce Website"
+        },
+        {
+            "name": "Average Revenue Per Customer",
+            "id": "average_revenue_per_customer",
+            "metric": "average_revenue_per_customer_net",
+            "dimensions": [],
+            "filters": {
+                "id": "cec95792-5d8f-48cd-9f19-c972646e2e19",
+                "rules": [
+                    {
+                        "id": "5a2adbcc-413d-4c3a-8da2-64751a9b28de",
+                        "field": "source",
+                        "value": "shopify",
+                        "operator": "=",
+                        "valueSource": "value"
+                    }
+                ]
+            },
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "Shopify/BigCommerce Website"
+        },
+        {
+            "name": "Repeat Rate",
+            "id": "repeat_rate",
+            "metric": "repeat_rate",
+            "dimensions": [],
+            "filters": {
+                "id": "cec95792-5d8f-48cd-9f19-c972646e2e19",
+                "rules": [
+                    {
+                        "id": "5a2adbcc-413d-4c3a-8da2-64751a9b28de",
+                        "field": "source",
+                        "value": "shopify",
+                        "operator": "=",
+                        "valueSource": "value"
+                    }
+                ]
+            },
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "Shopify/BigCommerce Website"
+        },
+        {
+            "name": "Amazon Net Revenue",
+            "id": "amazon_net_revenue",
+            "metric": "net_revenue",
+            "dimensions": [
+                "product_category",
+                "product_title",
+                "billing_address_state"
+            ],
+            "filters": {
+                "id": "cec95792-5d8f-48cd-9f19-c972646e2e19",
+                "rules": [
+                    {
+                        "id": "5a2adbcc-413d-4c3a-8da2-64751a9b28de",
+                        "field": "source",
+                        "value": "amazon",
+                        "operator": "=",
+                        "valueSource": "value"
+                    }
+                ]
+            },
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "Amazon Marketplace"
+        },
+        {
+            "name": "Amazon Orders",
+            "id": "amazon_orders",
+            "metric": "total_orders",
+            "dimensions": [
+                "product_category",
+                "product_title",
+                "billing_address_state"
+            ],
+            "filters": {
+                "id": "cec95792-5d8f-48cd-9f19-c972646e2e19",
+                "rules": [
+                    {
+                        "id": "5a2adbcc-413d-4c3a-8da2-64751a9b28de",
+                        "field": "source",
+                        "value": "amazon",
+                        "operator": "=",
+                        "valueSource": "value"
+                    }
+                ]
+            },
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "Amazon Marketplace"
+        },
+        {
+            "name": "Amazon Average Order Value",
+            "id": "amazon_average_order_value",
+            "metric": "average_order_value_net",
+            "dimensions": [],
+            "filters": {
+                "id": "cec95792-5d8f-48cd-9f19-c972646e2e19",
+                "rules": [
+                    {
+                        "id": "5a2adbcc-413d-4c3a-8da2-64751a9b28de",
+                        "field": "source",
+                        "value": "amazon",
+                        "operator": "=",
+                        "valueSource": "value"
+                    }
+                ]
+            },
+            "function": "Revenue and Growth",
+            "type": "maximization_metric",
+            "data_source": "Amazon Marketplace"
+        }
+    ],
+    "edges": [
+        {
+            "target": "net_revenue",
+            "source": "amazon_net_revenue",
+            "relation": "direct"
+        },
+        {
+            "target": "amazon_net_revenue",
+            "source": "amazon_orders",
+            "relation": "direct"
+        },
+        {
+            "target": "amazon_net_revenue",
+            "source": "amazon_average_order_value",
+            "relation": "direct"
+        },
+        {
+            "target": "net_revenue",
+            "source": "website_net_revenue",
+            "relation": "direct"
+        },
+        {
+            "target": "website_net_revenue",
+            "source": "website_orders",
+            "relation": "direct"
+        },
+        {
+            "target": "website_net_revenue",
+            "source": "website_average_order_value",
+            "relation": "direct"
+        },
+        {
+            "target": "website_orders",
+            "source": "website_checkouts",
+            "relation": "direct"
+        },
+        {
+            "target": "website_orders",
+            "source": "website_payment_success_rate",
+            "relation": "direct"
+        },
+        {
+            "target": "website_checkouts",
+            "source": "website_add_to_cart",
+            "relation": "direct"
+        },
+        {
+            "target": "website_checkouts",
+            "source": "website_cart_abandonment_rate",
+            "relation": "inverse"
+        },
+        {
+            "target": "website_add_to_cart",
+            "source": "website_product_views",
+            "relation": "direct"
+        },
+        {
+            "target": "website_add_to_cart",
+            "source": "website_add_to_cart_rate",
+            "relation": "direct"
+        },
+        {
+            "target": "website_product_views",
+            "source": "website_sessions",
+            "relation": "direct"
+        },
+        {
+            "target": "website_product_views",
+            "source": "website_bounce_rate",
+            "relation": "inverse"
+        },
+        {
+            "target": "website_sessions",
+            "source": "ad_clicks",
+            "relation": "direct"
+        },
+        {
+            "target": "ad_clicks",
+            "source": "ad_click_through_rate",
+            "relation": "direct"
+        },
+        {
+            "target": "ad_clicks",
+            "source": "ad_impressions",
+            "relation": "direct"
+        },
+        {
+            "target": "ad_impressions",
+            "source": "ad_cpm",
+            "relation": "direct"
+        },
+        {
+            "target": "ad_impressions",
+            "source": "ad_spend",
+            "relation": "direct"
+        },
+        {
+            "target": "website_net_revenue",
+            "source": "number_of_customers",
+            "relation": "direct"
+        },
+        {
+            "target": "website_net_revenue",
+            "source": "average_revenue_per_customer",
+            "relation": "direct"
+        },
+        {
+            "target": "average_revenue_per_customer",
+            "source": "repeat_rate",
+            "relation": "direct"
+        }
+    ]
+}
