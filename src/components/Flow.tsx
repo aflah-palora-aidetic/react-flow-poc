@@ -2,23 +2,13 @@
 import { ChangeEvent, useCallback, useState } from 'react';
 import { Background, Controls, MiniMap, ReactFlow, addEdge, useNodesState, useEdgesState, type OnConnect, Node } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import { transformData } from '../config/utils';
+import { reverseTransformData, transformData } from '../config/utils';
 import JsonData from '../config/config_v2.json';
 import { CustomNode } from './CustomNode';
 import { NodeModal } from './NodeModal';
 import { Box, Button, Input } from '@mui/material';
 import { DownloadOutlined, UploadOutlined } from '@mui/icons-material';
-
-type NodeData = {
-    id: string;
-    label?: string;
-    metric?: string;
-    function?: string;
-    type?: string;
-    data_source?: string;
-    dimensions?: string[]; // Add dimensions if needed
-    filters?: any[];
-};
+import { NodeData } from '../config/constants';
 
 const { nodes: initialNodes, edges: initialEdges } = transformData(JsonData);
 
@@ -53,7 +43,7 @@ export const Flow = () => {
     };
 
     const downloadJson = () => {
-        const data = { nodes, edges };
+        const data = reverseTransformData({ nodes, edges });
         const json = JSON.stringify(data, null, 2);
         const blob = new Blob([json], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
@@ -84,17 +74,9 @@ export const Flow = () => {
                 const text = e.target?.result;
                 if (text) {
                     const data = JSON.parse(text as string);
-                    let transformedNodes = data.nodes;
-                    let transformedEdges = data.edges;
-
-                    if (!transformedNodes.some((node: any) => node.position)) {
-                        const transformedData = transformData(data);
-                        transformedNodes = transformedData.nodes;
-                        transformedEdges = transformedData.edges;
-                    }
-
-                    setNodes(transformedNodes);
-                    setEdges(transformedEdges);
+                    const res = transformData(data);
+                    setNodes(res.nodes as unknown as Node<NodeData>[]);
+                    setEdges(res.edges);
                 }
             };
             reader.readAsText(file);
