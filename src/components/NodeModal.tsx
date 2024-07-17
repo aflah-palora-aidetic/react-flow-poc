@@ -44,7 +44,7 @@ export const NodeModal: FC<NodeModalProps> = ({ open, handleClose, nodeData, han
             onSubmit={(e) => {
                 e.preventDefault();
                 onSave();
-            }} 
+            }}
         >
             <DialogTitle>Edit Node</DialogTitle>
             <DialogContent>
@@ -87,14 +87,16 @@ export const NodeModal: FC<NodeModalProps> = ({ open, handleClose, nodeData, han
                 </Box>
             </DialogContent>
             <DialogActions>
-                <Button
-                    sx={{ textTransform: 'none' }}
-                    color='error'
-                    variant='contained'
-                    onClick={handleDelete}
-                >
-                    Delete Node
-                </Button>
+                {nodeData && handleDelete && (
+                    <Button
+                        sx={{ textTransform: 'none' }}
+                        color='error'
+                        variant='contained'
+                        onClick={handleDelete}
+                    >
+                        Delete Node
+                    </Button>
+                )}
                 <Button
                     sx={{ textTransform: 'none' }}
                     variant='outlined'

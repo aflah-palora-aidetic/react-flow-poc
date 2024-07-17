@@ -27,16 +27,29 @@ export const Flow = () => {
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
     const [selectedNode, setSelectedNode] = useState<Node<NodeData> | null>(null);
-    const [modalOpen, setModalOpen] = useState(false);
+    const [editModalOpen, setEditModalOpen] = useState(false);
+    const [addModalOpen, setAddModalOpen] = useState(false);
 
     const onConnect: OnConnect = useCallback((connection) => setEdges((eds) => addEdge(connection, eds)), [setEdges]);
 
     const handleModalClose = () => {
-        setModalOpen(false);
+        setEditModalOpen(false);
+        setAddModalOpen(false);
     };
 
     const handleNodeSave = (updatedNode: NodeData) => {
         setNodes((nds) => nds.map((n) => (n?.id === selectedNode?.id ? ({ ...n, data: updatedNode } as Node<NodeData>) : n)));
+    };
+
+    const handleAddNodeSave = (newNodeData: NodeData) => {
+        const newNode: Node<NodeData> = {
+            id: `node_${nodes.length + 1}`,
+            type: 'custom',
+            position: { x: 0, y: 0 },
+            data: newNodeData,
+        };
+        setNodes((nds) => [...nds, newNode]);
+        setAddModalOpen(false);
     };
 
     const downloadJson = () => {
@@ -59,7 +72,7 @@ export const Flow = () => {
             setNodes(filteredNodes);
             setEdges(filteredEdges);
             setSelectedNode(null);
-            setModalOpen(false);
+            setEditModalOpen(false);
         }
     };
 
@@ -100,7 +113,7 @@ export const Flow = () => {
                 onConnect={onConnect}
                 onNodeClick={(_, node) => {
                     setSelectedNode(node);
-                    setModalOpen(true);
+                    setEditModalOpen(true);
                 }}
                 fitView
             >
@@ -139,13 +152,36 @@ export const Flow = () => {
                         />
                     </Button>
                 </Box>
+                <Box
+                    position='absolute'
+                    bottom={10}
+                    right={10}
+                    zIndex={99}
+                >
+                    <Button
+                        size='small'
+                        variant='contained'
+                        color='secondary'
+                        onClick={() => setAddModalOpen(true)}
+                        sx={{ textTransform: 'none' }}
+                    >
+                        Add Node
+                    </Button>
+                </Box>
             </ReactFlow>
             <NodeModal
-                open={modalOpen}
+                open={editModalOpen}
                 handleClose={handleModalClose}
                 nodeData={selectedNode?.data || null}
                 handleSave={handleNodeSave}
                 handleDelete={handleDeleteNode}
+            />
+            <NodeModal
+                open={addModalOpen}
+                handleClose={handleModalClose}
+                nodeData={null}
+                handleSave={handleAddNodeSave}
+                handleDelete={() => {}}
             />
         </>
     );
